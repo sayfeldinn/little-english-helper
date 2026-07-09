@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI English Tutor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <main class="app-card">
+        <header class="app-header">
+            <!-- <img class="app-logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo" /> -->
+            <h1>AI English Tutor</h1>
+            <p class="subtitle">
+                Type a sentence in English and I'll help you make it even better!
+            </p>
+        </header>
+
+        <!-- Input area -->
+        <section class="input-section">
+            <label for="sentence-input" class="input-label">
+                Write your sentence here:
+            </label>
+            <textarea
+                id="sentence-input"
+                placeholder="Let's talk in English."
+                rows="4"
+                maxlength="500"
+            ></textarea>
+
+            <button id="check-button" type="button">
+                <span id="button-text">Check My Sentence</span>
+            </button>
+        </section>
+
+        <!-- Loading indicator (hidden by default) -->
+        <div id="loading-indicator" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Your English teacher is thinking...</p>
+        </div>
+
+        <!-- Output card (hidden until we have feedback) -->
+        <section id="output-card" class="output-card hidden">
+            <div id="corrected-cell" class="result-cell corrected-cell">
+                <h2>✅ Corrected Sentence</h2>
+                <p id="corrected-text"></p>
+            </div>
+            <div class="result-cell feedback-cell">
+                <p id="feedback-text"></p>
+            </div>
+        </section>
+
+        <!-- Error message area (hidden until there's an error) -->
+        <div id="error-message" class="error-message hidden"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
